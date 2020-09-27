@@ -1,0 +1,37 @@
+﻿@model IEnumerable<NYFInter.Models.Message>
+
+@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/User/_Layout.cshtml";
+}
+
+<h2>DashBoard</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SentBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SentDate)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SentBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SentDate)
+        </td>
+    </tr>
+}
+
+</table>

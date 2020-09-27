@@ -1,0 +1,56 @@
+﻿@model NYFInter.Entry
+
+@{
+    ViewBag.Title = "ChangeSubmissionStatus";
+    Layout = "~/Views/Admin/_Layout.cshtml";
+}
+
+<h2>Change Submission Status</h2>
+
+<div>
+    <h4>Entry Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.UserId)
+    @Html.HiddenFor(model => model.Username)
+    @Html.HiddenFor(model => model.Text)
+    @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.DropDownListFor(model => model.Status, new SelectList(ViewBag.AvailableStatus), new { @class = "form-control" })
+    <input type="submit" value="Change Status" class="btn btn-default" />
+</div>
+}
+<p>
+    @Html.ActionLink("Back to List", "Users_Submissions")
+</p>

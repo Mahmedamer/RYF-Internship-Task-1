@@ -1,0 +1,45 @@
+﻿@model IEnumerable<NYFInter.Models.Message>
+
+@{
+    ViewBag.Title = "Messages";
+}
+
+<h2>Messages</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateMessage")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SentBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SentDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SentBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SentDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditMessage", new { id=item.Id }) |
+            @Html.ActionLink("Details", "MessageDetails", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteMessage", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

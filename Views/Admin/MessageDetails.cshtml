@@ -1,0 +1,43 @@
+﻿@model NYFInter.Models.Message
+
+@{
+    ViewBag.Title = "MessageDetails";
+    Layout = "~/Views/Admin/_Layout.cshtml";
+}
+
+<h2>Message Details</h2>
+
+<div>
+    <h4>Message</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SentBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SentBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SentDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditMessage", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Messages")
+</p>
